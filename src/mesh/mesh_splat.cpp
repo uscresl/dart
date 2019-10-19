@@ -48,9 +48,9 @@ void splatSolidMesh(const dart::Mesh & mesh, dart::Grid3D<float> & sdf) {
             }
         }
 
-        for (int z = std::max(0.0,floor((min_z-sdf.offset.z)/sdf.resolution)); z < std::min((double)sdf.dim.z,ceil((max_z-sdf.offset.z)/sdf.resolution)); z++) {
-            for (int y = std::max(0.0,floor((min_y-sdf.offset.y)/sdf.resolution)); y < std::min((double)sdf.dim.y,ceil((max_y-sdf.offset.y)/sdf.resolution)); y++) {
-                for (int x = std::max(0.0,floor((min_x-sdf.offset.x)/sdf.resolution)); x < std::min((double)sdf.dim.x,ceil((max_x-sdf.offset.x)/sdf.resolution)); x++) {
+        for (int z = std::max(0.0,(double)(floor((min_z-sdf.offset.z)/sdf.resolution))); z < std::min((double)sdf.dim.z,(double)(ceil((max_z-sdf.offset.z)/sdf.resolution))); z++) {
+            for (int y = std::max(0.0,(double)(floor((min_y-sdf.offset.y)/sdf.resolution))); y < std::min((double)sdf.dim.y,(double)(ceil((max_y-sdf.offset.y)/sdf.resolution))); y++) {
+                for (int x = std::max(0.0,(double)(floor((min_x-sdf.offset.x)/sdf.resolution))); x < std::min((double)sdf.dim.x,(double)(ceil((max_x-sdf.offset.x)/sdf.resolution))); x++) {
                     candidateFaces[x + y*sdf.dim.x + z*sdf.dim.x*sdf.dim.y].push_back(f);
                 }
             }
