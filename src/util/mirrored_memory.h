@@ -85,8 +85,14 @@ private:
 template <typename T>
 MirroredVector<T>::MirroredVector(const uint length) : _length(length) {
     if(length != 0){
-        cudaMallocHost(&_hVector,length*sizeof(T));
-        cudaMalloc(&_dVector,length*sizeof(T));
+        // cudaMallocHost(&_hVector,length*sizeof(T));
+        // cudaMalloc(&_dVector,length*sizeof(T));
+        // DEBUG
+        cudaError cmh = cudaMallocHost(&_hVector, length*sizeof(T));
+        cudaError cm = cudaMalloc(&_dVector, length*sizeof(T));
+        if (cmh != cudaSuccess || cm != cudaSuccess) {
+            printf("MirroredVector: CUDA Malloc Error, %d, %d\n", (int)cmh, (int)cm);
+        }
     }
     else{
         _hVector = NULL;
