@@ -169,6 +169,7 @@ set(point_cloud_srcs
 set(depth_source_src
     ${PROJECT_SOURCE_DIR}/src/depth_sources/depth_source.h
     ${PROJECT_SOURCE_DIR}/src/depth_sources/image_depth_source.h
+    ${PROJECT_SOURCE_DIR}/src/depth_sources/ros_depth_source.h
 )
 
 # set conditional sources

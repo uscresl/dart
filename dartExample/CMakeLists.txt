@@ -7,7 +7,7 @@ endif()
 
 add_definitions(-std=c++11)
 
-find_path(DART_ROOT NAMES lib/libdart.so src/tracker.h HINTS ${PROJECT_SOURCE_DIR}/../dart ${PROJECT_SOURCE_DIR}/.. ${PROJECT_SOUCE_DIR}/dart)
+find_path(DART_ROOT NAMES lib/libdart.so src/tracker.h HINTS ${PROJECT_SOURCE_DIR}/../dart ${PROJECT_SOURCE_DIR}/.. ${PROJECT_SOUCE_DIR}/dart ${PROJECT_SOURCE_DIR}/../src/dart)
 message(STATUS "Found dart is at ${DART_ROOT}")
 include_directories(${DART_ROOT}/src)
 link_directories(${DART_ROOT}/lib)

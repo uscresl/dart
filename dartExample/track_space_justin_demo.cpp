@@ -70,6 +70,7 @@ std::string getTrackingModeString(const TrackingMode mode) {
     case ModeObjGraspedLeft:
         return "object grasped in left hand";
     }
+    return "unkown object position";
 }
 
 const static int panelWidth = 180;
